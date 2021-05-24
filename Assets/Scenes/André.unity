@@ -277,5 +277,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimi
       objectReference: {fileID: 0}
+    - target: {fileID: 4833637759345042319, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833637759345042319, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
