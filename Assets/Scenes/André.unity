@@ -222,6 +222,59 @@ MonoBehaviour:
   player: {fileID: 4833637759345042305, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
   smoothing: 0
   offset: {x: 0, y: 0, z: 0}
+--- !u!1 &1870644125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870644127}
+  - component: {fileID: 1870644126}
+  m_Layer: 0
+  m_Name: Cave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870644126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870644125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f53d00df93fad4a84f73e47920aad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellBehaviorPrefab: {fileID: 0}
+  width: 8
+  height: 6
+  aliveToDeathConversion: 4
+  deathToAliveConversion: 4
+  roomSurvivalThreshold: 9
+  showcase: 0
+  seed: 0
+  randomFillFactor: 0.5
+  passageRadius: 1
+--- !u!4 &1870644127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870644125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6407275, y: 0.33808643, z: -1.158429}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4833637760512604601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,7 +284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4833637759345042305, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4833637759345042305, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
       propertyPath: m_LocalPosition.x
