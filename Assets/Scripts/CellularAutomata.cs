@@ -28,7 +28,8 @@ public class CellularAutomata : MonoBehaviour
 
     protected List<Region> regions_ = new List<Region>();
     [SerializeField] private int passageRadius = 1;
-
+    
+    
     public class Region : System.IComparable<Region>
     {
         private List<Vector2Int> tiles = new List<Vector2Int>();
