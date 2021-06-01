@@ -9,6 +9,7 @@ public class BatCombat : MonoBehaviour
     [SerializeField] private Transform bat;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private int batAttackDamage = 20;
     
     // Update is called once per frame
     void Update()
@@ -19,6 +20,7 @@ public class BatCombat : MonoBehaviour
 
             foreach (Collider2D player in hitPlayer)
             {
+                player.GetComponent<PlayerCombat>().TakeDamage(batAttackDamage);
                 Debug.Log("Player receive damage");
             }
         } 
