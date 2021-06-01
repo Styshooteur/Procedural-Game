@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
@@ -18,6 +19,7 @@ public class SteeringEntity : MonoBehaviour
     private int targetIndex = 0;
     private Transform entityTransform;
     private Rigidbody2D body;
+    private bool _playerSpotted = false;
 
     [SerializeField] private float entitySpeed = 3.0f;
     [SerializeField] private float pointThreshold = 0.5f;
@@ -25,6 +27,7 @@ public class SteeringEntity : MonoBehaviour
     [SerializeField] private float maxSteeringForce = 100.0f;
     [SerializeField] private SteeringType steeringType = SteeringType.VelocityByHand;
     [SerializeField] private float wanderAngle = 10.0f;
+    [SerializeField] private Transform playerTransform;
 
     private void Start()
     {
@@ -77,7 +80,16 @@ public class SteeringEntity : MonoBehaviour
             switch (steeringType)
             {
                 case SteeringType.VelocityByHand:
-                    body.velocity = entitySpeed * deltaPos.normalized;
+                    if (_playerSpotted == true)
+                    {
+                        var playerPosition = playerTransform.position;
+                        var deltaPlayerPos = playerPosition - entityTransform.position;
+                        body.velocity = entitySpeed * deltaPlayerPos.normalized;
+                    }
+                    else
+                    {
+                        body.velocity = entitySpeed * deltaPos.normalized;
+                    }
                     break;
                 case SteeringType.UsingConstantForce:
                     body.AddForce(deltaPos.normalized, ForceMode2D.Force);
@@ -113,6 +125,15 @@ public class SteeringEntity : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("PlayerSpotted");
+            _playerSpotted = true;
         }
     }
 }

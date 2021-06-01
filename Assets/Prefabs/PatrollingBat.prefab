@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4162738329433616923}
   - component: {fileID: -256346795203153340}
   - component: {fileID: 1266410781700300560}
+  - component: {fileID: 4484504672435553565}
   m_Layer: 0
   m_Name: PatrollingBat
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4677328347303300560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.999, y: 0.996, z: 0}
-  m_LocalScale: {x: 0.27861822, y: 0.4157354, z: 1}
+  m_LocalScale: {x: 1.2198483, y: 2.6014683, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,6 +126,7 @@ MonoBehaviour:
   maxSteeringForce: 100
   steeringType: 1
   wanderAngle: 10
+  playerTransform: {fileID: 0}
 --- !u!95 &1266410781700300560
 Animator:
   serializedVersion: 3
@@ -144,3 +146,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &4484504672435553565
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677328347303300560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.08389532}
+  serializedVersion: 2
+  m_Radius: 1.0302113
