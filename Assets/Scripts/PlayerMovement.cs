@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]  float speed;
     private Vector2 _direction;
+    public Vector2 Direction => _direction;
+
     private Vector2 _targetPos;
     private Animator _animator;
     public enum State
@@ -45,22 +47,22 @@ public class PlayerMovement : MonoBehaviour
     private void TakeInput() // Takes input to move the player
     {
         _direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
         {
             _direction += Vector2.up;
           _stateDir = State.UP;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W))
         {
             _direction += Vector2.down; 
             _stateDir = State.DOWN;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             _direction += Vector2.left; 
             _stateDir = State.LEFT;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             _direction += Vector2.right; 
             _stateDir = State.RIGHT;

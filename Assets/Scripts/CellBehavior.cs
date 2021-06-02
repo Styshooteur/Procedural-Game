@@ -1,35 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-    public struct Cell
-    {
-        public bool isAlive;
+public struct Cell
+{
+    public bool isAlive;
 
-        public Cell(bool isAlive)
+    public Cell(bool isAlive)
+    {
+        this.isAlive = isAlive;
+    }
+}
+public class CellBehavior : MonoBehaviour
+{
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private bool isAlive = true;
+
+
+    public bool IsAlive
+    {
+        get => isAlive;
+        set
         {
-            this.isAlive = isAlive;
+            isAlive = value;
+            UpdateColor(isAlive?Color.white:Color.black);
         }
     }
 
-    public class CellBehavior : MonoBehaviour
+    public void UpdateColor(Color color)
     {
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        private bool isAlive = true;
-
-
-        public bool IsAlive
-        {
-            get => isAlive;
-            set
-            {
-                isAlive = value;
-                UpdateColor(isAlive ? Color.white : Color.black);
-            }
-        }
-
-        public void UpdateColor(Color color)
-        {
-            spriteRenderer.color = color;
-        }
+        spriteRenderer.color = color;
     }
+}

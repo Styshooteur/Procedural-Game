@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died");
+        SceneManager.LoadScene(1);
     }
 
     private IEnumerator FlashRed()
@@ -34,11 +36,5 @@ public class PlayerCombat : MonoBehaviour
         sprite.color = Color.red;
         yield return new WaitForSecondsRealtime(0.2f);
         sprite.color = Color.white;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
