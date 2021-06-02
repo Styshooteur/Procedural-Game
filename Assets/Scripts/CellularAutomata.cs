@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,11 +14,11 @@ public class CellularAutomata : MonoBehaviour
     protected CellBehavior[,] cellViews;
     protected Cell[,] cells;
     protected Cell[,] previousCells;
-    
+    private Rect worldRect;
 
     [SerializeField] protected int width = 0;
     [SerializeField] protected int height = 0;
-    private const float cellSize = 0.1f;
+    private const float cellSize = 1.5f;
     [SerializeField] private int aliveToDeathConversion = 4;
     [SerializeField] private int deathToAliveConversion = 4;
     [SerializeField] private int roomSurvivalThreshold = 9;
@@ -26,10 +27,9 @@ public class CellularAutomata : MonoBehaviour
     [SerializeField] private int seed = 0;
     [Range(0.0f,1.0f)][SerializeField] private double randomFillFactor = 0.5;
 
-    protected List<Region> regions_ = new List<Region>();
+    private List<Region> regions_ = new List<Region>();
     [SerializeField] private int passageRadius = 1;
-    
-    
+
     public class Region : System.IComparable<Region>
     {
         private List<Vector2Int> tiles = new List<Vector2Int>();
@@ -94,6 +94,11 @@ public class CellularAutomata : MonoBehaviour
 
 
     }
+
+    protected List<Region> Regions => regions_;
+
+    public Rect WorldRect => worldRect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +110,12 @@ public class CellularAutomata : MonoBehaviour
         cellViews = new CellBehavior[width, height];
         cells = new Cell[width, height];
         previousCells = new Cell[width, height];
-        System.Random pseudoRandom = new System.Random(seed);
+        System.Random pseudoRandom = new System.Random();
+        worldRect = new Rect()
+        {
+            min = new Vector2(-width / 2.0f * cellSize, -height / 2.0f * cellSize),
+            max = new Vector2(width / 2.0f * cellSize, height / 2.0f * cellSize),
+        };
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -157,7 +167,50 @@ public class CellularAutomata : MonoBehaviour
             System.DateTime end = System.DateTime.Now;
             System.TimeSpan ts = (end - start);
             Debug.Log("Region connection Elapsed Time is "+ts.TotalMilliseconds+"ms");
-            
+            AddPhysicsBox();
+        }
+    }
+
+    public CellBehavior GetClosestCell(Vector2 worldPos)
+    {
+        Vector2 position = worldPos/cellSize+new Vector2(width, height)/2.0f;
+        Vector2Int pos = new Vector2Int((int) position.x, (int) position.y);
+        if (pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= height)
+            return null;
+        return cellViews[pos.x, pos.y];
+    }
+    private void AddPhysicsBox()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if(cells[x,y].isAlive)
+                    continue;
+                bool aliveNeighbor = false;
+                for (int dx = -1; dx <= 1; dx++)
+                {
+                    for (int dy = -1; dy <= 1; dy++)
+                    {
+                        Vector2Int neighborPos = new Vector2Int(x + dx, y + dy);
+                        if(neighborPos.x < 0 || neighborPos.x >= width || neighborPos.y < 0 || neighborPos.y >= height)
+                            continue;
+                        if (cells[neighborPos.x, neighborPos.y].isAlive)
+                        {
+                            aliveNeighbor = true;
+                            break;
+                        }
+                        
+                    }
+                    if(aliveNeighbor)
+                        break;
+                }
+
+                if (aliveNeighbor)
+                {
+                    cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
+                }
+            }
         }
     }
 
