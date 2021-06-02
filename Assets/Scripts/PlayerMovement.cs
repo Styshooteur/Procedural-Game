@@ -3,10 +3,12 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]  float speed;
+    [SerializeField] float speed;
+    [SerializeField] private SpriteRenderer sprite;
     private Vector2 _direction;
     private Vector2 _targetPos;
     private Animator _animator;
+
     public enum State
     {
         UP,
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+
         TakeInput();
         Move();
     }
@@ -65,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
             _direction += Vector2.right; 
             _stateDir = State.RIGHT;
         }
-        
     }
 
 }
