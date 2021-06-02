@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public struct Cell
 {
@@ -13,7 +14,12 @@ public class CellBehavior : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     private bool isAlive = true;
+    [SerializeField] private Sprite[] sprites_;
 
+    private void Start()
+    {
+        spriteRenderer.sprite = sprites_[Random.Range(0, sprites_.Length)];
+    }
 
     public bool IsAlive
     {
