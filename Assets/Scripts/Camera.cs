@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    private Transform player;
+    public Transform Player
+    {
+        set => player = value;
+    }
     [SerializeField] float smoothing;
     [SerializeField] Vector3 offset;
     void Update() // Camera that follows the player

@@ -24,6 +24,8 @@ public class BatCombat : MonoBehaviour
                 Debug.Log("Player receive damage");
             }
         } 
+        
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)

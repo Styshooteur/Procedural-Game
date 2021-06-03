@@ -6,7 +6,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] private SpriteRenderer sprite;
     private Vector2 _direction;
-    public Vector2 Direction => _direction;
+    public Vector2 Direction
+    {
+        get => _direction;
+        set => _direction = value;
+    }
 
     private Vector2 _targetPos;
     private Animator _animator;

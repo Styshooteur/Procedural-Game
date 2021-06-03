@@ -4,12 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class CellularAutomata : MonoBehaviour
 {
     [SerializeField] private CellBehavior cellBehaviorPrefab;
+    [SerializeField] private GameObject _wallPrefab;
+    [SerializeField] private GameObject _playerPrefab;
 
     protected CellBehavior[,] cellViews;
     protected Cell[,] cells;
@@ -103,6 +107,7 @@ public class CellularAutomata : MonoBehaviour
     void Start()
     {
         Init();
+        StartRoom();
     }
 
     protected virtual void Init()
@@ -208,7 +213,10 @@ public class CellularAutomata : MonoBehaviour
 
                 if (aliveNeighbor)
                 {
-                    cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
+                    //cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
+                    
+                    Vector3 position = new Vector3((x - width/2)*cellSize, (y-height/2)*cellSize, 0.0f);
+                    Instantiate(_wallPrefab, position, Quaternion.identity, transform);
                 }
             }
         }
@@ -487,5 +495,20 @@ public class CellularAutomata : MonoBehaviour
             }
         }
         return aliveNeighborCount;
+    }
+
+    void StartRoom()
+    {
+        var startregion = regions_[Random.Range( 0, Regions.Count)];
+        var startingtile = startregion.Tiles[Random.Range(0, startregion.Count)];
+        Vector3 position = new Vector3((startingtile.x - width/2)*cellSize, (startingtile.y-height/2)*cellSize, 0.0f);
+        var player = Instantiate(_playerPrefab, position, Quaternion.identity);
+        UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
+        var steeringEntities = FindObjectsOfType<SteeringEntity>();
+        foreach (var steeringEntity in steeringEntities)
+        {
+            steeringEntity.Player = player.transform;
+        }
+        
     }
 }

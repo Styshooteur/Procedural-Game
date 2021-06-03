@@ -27,9 +27,13 @@ public class SteeringEntity : MonoBehaviour
     [SerializeField] private float maxSteeringForce = 100.0f;
     [SerializeField] private SteeringType steeringType = SteeringType.VelocityByHand;
     [SerializeField] private float wanderAngle = 10.0f;
-    [SerializeField] private Transform playerTransform;
+     private Transform player;
+     public Transform Player
+     {
+         set => player = value;
+     }
 
-    private void Start()
+     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
         entityTransform = transform;
@@ -82,7 +86,7 @@ public class SteeringEntity : MonoBehaviour
                 case SteeringType.VelocityByHand:
                     if (_playerSpotted == true)
                     {
-                        var playerPosition = playerTransform.position;
+                        var playerPosition = player.position;
                         var deltaPlayerPos = playerPosition - entityTransform.position;
                         body.velocity = entitySpeed * deltaPlayerPos.normalized;
                     }

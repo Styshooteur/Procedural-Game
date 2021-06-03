@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8556572774468276271}
   - component: {fileID: -2707873888580251791}
   - component: {fileID: 1602733552}
+  - component: {fileID: -3005974764415197281}
+  - component: {fileID: -2522728364701055250}
   m_Layer: 9
   m_Name: Mimi
   m_TagString: Untagged
@@ -119,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprite: {fileID: 4833637759345042318}
 --- !u!61 &8556572774468276271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,5 +181,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254b46ed8e4cc4a47812eb0edeaa8faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   sprite: {fileID: 4833637759345042318}
+--- !u!114 &-3005974764415197281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833637759345042316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b344c9e21874ac24986a2954620f716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: {fileID: 988787718534167965}
+--- !u!114 &-2522728364701055250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833637759345042316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca1b9ea36092794d81f53eb4b0b65c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5273793858459788365, guid: 4ca6d69b1632d4b4a87fab4fc3124c61, type: 3}
+  minDamage: 10
+  maxDamage: 20
+  projectileForce: 40

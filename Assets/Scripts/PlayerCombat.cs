@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,17 +9,16 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private SpriteRenderer sprite;
     private int _currentHealth;
-    // Start is called before the first frame update
+    
     void Start()
     {
         _currentHealth = maxHealth;
     }
-
+    
     public void TakeDamage(int damage)
     {
         StartCoroutine(FlashRed());
         _currentHealth -= damage;
-        
         if (_currentHealth <= 0)
         {
             Die();
