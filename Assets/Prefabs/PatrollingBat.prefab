@@ -219,7 +219,6 @@ MonoBehaviour:
   maxSteeringForce: 100
   steeringType: 1
   wanderAngle: 10
-  playerTransform: {fileID: 4833637759345042305, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
 --- !u!95 &1266410781700300560
 Animator:
   serializedVersion: 3
@@ -299,6 +298,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   batAttackDamage: 10
+  batMaxHealth: 50
+  sprite: {fileID: 1208492822536367188}
+  web: {fileID: 1946266801081818105, guid: 4ca6d69b1632d4b4a87fab4fc3124c61, type: 3}
 --- !u!1001 &895986907
 PrefabInstance:
   m_ObjectHideFlags: 0

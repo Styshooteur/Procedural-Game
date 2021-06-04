@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float _damage;
+    //[SerializeField] private BatCombat batCombat;
+    //[SerializeField] private BoxCollider2D batBox;
+    public int damage = 10;
     private const float TimeToLive = 3f;
 
-    public float Damage
+        public int Damage
     {
-        get => _damage;
-        set => _damage = value;
+        get => damage;
+        set => damage = value;
     }
 
     private void Start()
     {
         Destroy(gameObject, TimeToLive);
     }
-    void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.name != "Player")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bat"))
         {
 
         }

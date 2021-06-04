@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254b46ed8e4cc4a47812eb0edeaa8faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   sprite: {fileID: 4833637759345042318}
 --- !u!114 &-3005974764415197281
 MonoBehaviour:
@@ -209,6 +209,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5273793858459788365, guid: 4ca6d69b1632d4b4a87fab4fc3124c61, type: 3}
-  minDamage: 10
-  maxDamage: 20
-  projectileForce: 40
