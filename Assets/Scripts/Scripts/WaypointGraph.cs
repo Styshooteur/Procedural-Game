@@ -19,8 +19,8 @@ public class WaypointGraph : MonoBehaviour
         var cameraSize = 2.0f * mainCamera.orthographicSize * new Vector2(mainCamera.aspect, 1.0f);
         var cameraRect = new Rect(){min=-cameraSize/2.0f, max = cameraSize/2.0f};
 
-        var width = cameraRect.width / resolution;
-        var height = cameraRect.height / resolution;
+        var width = 80.0f;
+        var height = 70.0f;
         Dictionary<Vector2Int, int> nodeMap = new Dictionary<Vector2Int, int>();
         for (int x = 0; x < width; x++)
         {
