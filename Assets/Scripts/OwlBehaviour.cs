@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class OwlBehaviour : MonoBehaviour
     
     void FixedUpdate()
     {
+        
         if (_playerSpotted)
         {
             var playerPosition = player.position;
@@ -41,6 +43,7 @@ public class OwlBehaviour : MonoBehaviour
             {
                 _dashTime = startDashTime;
                 _body.velocity = Vector2.zero;
+                _playerSpotted = false;
             }
         }
 
@@ -56,7 +59,7 @@ public class OwlBehaviour : MonoBehaviour
         {
             Debug.Log("PlayerSpotted");
             _playerSpotted = true;
-
         }
     }
+    
 }
