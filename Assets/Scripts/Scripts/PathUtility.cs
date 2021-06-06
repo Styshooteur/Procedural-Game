@@ -105,11 +105,11 @@ namespace path
                         {
                             cameFrom[neighbor.nodeIndex] = currentNode;
                             costSoFar[neighbor.nodeIndex] = cost;
-                            int index = nextNodes.FindIndex(Tuple => Tuple.Item1 == neighbor.nodeIndex);
+                            int index = nextNodes.FindIndex(tuple => tuple.Item1 == neighbor.nodeIndex);
                             var heuristicCost = cost + (nodes_[destination].position - nodes_[neighbor.nodeIndex].position)
                                 .magnitude;
-                            var tuple = new Tuple<int, float>(neighbor.nodeIndex, heuristicCost);
-                            nextNodes[index] = tuple;
+                            var Tuple = new Tuple<int, float>(neighbor.nodeIndex, heuristicCost);
+                            nextNodes[index] = Tuple;
                             nextNodes.Sort(Comparer<Tuple<int, float>>.Create(
                                 (t1, t2) => t1.Item2 < t2.Item2 ? -1 : t1.Item2 > t2.Item2 ? 1 : 0));
                         }
@@ -158,9 +158,9 @@ namespace path
                 return path;
             }
             var cameFrom = new int[Nodes.Count];
-            //cameFrom.Fill(-1);
+            cameFrom.Fill(-1);
             var costSoFar = new float[Nodes.Count];
-            //costSoFar.Fill(-1.0f);
+            costSoFar.Fill(-1.0f);
             costSoFar[startNode] = 0.0f;
             SimplePriorityQueue<int> frontier = new SimplePriorityQueue<int>();
             frontier.Enqueue(startNode, 0.0f);
