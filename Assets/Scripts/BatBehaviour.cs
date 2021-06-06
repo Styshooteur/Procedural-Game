@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-public class SteeringEntity : MonoBehaviour
+public class BatBehaviour : MonoBehaviour
 {
     public enum SteeringType
     {

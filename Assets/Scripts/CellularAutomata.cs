@@ -504,7 +504,7 @@ public class CellularAutomata : MonoBehaviour
         Vector3 position = new Vector3((startingtile.x - width/2)*cellSize, (startingtile.y-height/2)*cellSize, 0.0f);
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
-        var steeringEntities = FindObjectsOfType<SteeringEntity>();
+        var steeringEntities = FindObjectsOfType<BatBehaviour>();
         foreach (var steeringEntity in steeringEntities)
         {
             steeringEntity.Player = player.transform;

@@ -20,11 +20,11 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, TimeToLive);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bat"))
         {
 
         }
-    }
+    }*/
 }
