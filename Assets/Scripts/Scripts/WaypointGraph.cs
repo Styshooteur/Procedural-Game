@@ -15,7 +15,7 @@ public class WaypointGraph : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var mainCamera = Camera.main;
+        var mainCamera = UnityEngine.Camera.main;
         var cameraSize = 2.0f * mainCamera.orthographicSize * new Vector2(mainCamera.aspect, 1.0f);
         var cameraRect = new Rect(){min=-cameraSize/2.0f, max = cameraSize/2.0f};
 
@@ -66,7 +66,7 @@ public class WaypointGraph : MonoBehaviour
     void Update()
     {
         Vector2 startPos = Vector3.zero;
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouseWorldPos = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         int closestStartNode = -1;
         float closestStartDistance = -1.0f;
