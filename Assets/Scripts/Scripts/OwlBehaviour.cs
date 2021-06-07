@@ -84,7 +84,7 @@ public class OwlBehaviour : MonoBehaviour
 
                 if (_dashTime > 0)
                 {
-                    var playerSpottedPos = Player.position;
+                    var playerSpottedPos = player.position;
                     var deltaPlayerPos = playerSpottedPos - entityTransform.position;
                     _body.velocity = dashSpeed * deltaPlayerPos.normalized;
                 }

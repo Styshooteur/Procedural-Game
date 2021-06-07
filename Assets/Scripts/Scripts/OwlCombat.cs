@@ -35,7 +35,7 @@ public class OwlCombat : MonoBehaviour
         } 
     }
     
-    private void BatTakeDamage(int damage)
+    private void OwlTakeDamage(int damage)
     {
         StartCoroutine(FlashRed());
         _owlCurrentHealth -= damage;
@@ -63,7 +63,7 @@ public class OwlCombat : MonoBehaviour
             Debug.Log("Good Hitbox");
             if (other.gameObject.layer == LayerMask.NameToLayer("Web"))
             {
-                BatTakeDamage(web.damage);
+                OwlTakeDamage(web.damage);
             }
         }
     }

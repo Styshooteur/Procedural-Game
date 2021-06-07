@@ -508,50 +508,48 @@ public class CellularAutomata : MonoBehaviour
         var endregion = regions_[Random.Range( 0, Regions.Count)];
         var startingtile = startregion.Tiles[Random.Range(0, startregion.Count)];
         var endtile = endregion.Tiles[Random.Range(0, endregion.Count)];
-        Vector3 position = new Vector3((startingtile.x - width/2)*cellSize, (startingtile.y-height/2)*cellSize, 0.0f);
-        Vector3 position2 = new Vector3((endtile.x - width/2)*cellSize, (endtile.y-height/2)*cellSize, 0.0f);
+        
+        Vector3 position = new Vector3((startingtile.x - width/2)*cellSize,
+            (startingtile.y-height/2)*cellSize, 0.0f);
+        Vector3 position2 = new Vector3((endtile.x - width/2)*cellSize,
+            (endtile.y-height/2)*cellSize, 0.0f);
+        
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
         var endGame = Instantiate(_endgamePrefab, position2, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
         
-        for (var i = 0; i <= 2; i++)
+        
+        for (var i = 0; i <= 1; i++)
         {
             foreach (var randomRegion in Regions)
             {
-               
                 var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
-
-
                 Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
                     (randomTile.y - height / 2) * cellSize, 0.0f);
 
                 Instantiate(_owlPrefab, randomPosition, Quaternion.identity);
                 var owlEntities = FindObjectsOfType<OwlBehaviour>();
-                foreach (var steeringEntity in owlEntities)
-                {
+                    foreach (var steeringEntity in owlEntities)
+                    {
                     steeringEntity.Player = player.transform;
-                }
-
-            }
+                    }
+                
+            }    
         }
-        for (var i = 0; i <= 2; i++)
+        for (var i = 0; i <= 1; i++)
         {
             foreach (var randomRegion in Regions)
             {
-                
-                var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
+                    var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
+                    Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
+                        (randomTile.y - height / 2) * cellSize, 0.0f);
 
-
-                Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
-                    (randomTile.y - height / 2) * cellSize, 0.0f);
-
-                Instantiate(_batPrefab, randomPosition, Quaternion.identity);
-                var batEntities = FindObjectsOfType<BatBehaviour>();
-                foreach (var steeringEntity in batEntities)
-                {
-                    steeringEntity.Player = player.transform;
-                }
-
+                    Instantiate(_batPrefab, randomPosition, Quaternion.identity);
+                    var batEntities = FindObjectsOfType<BatBehaviour>();
+                    foreach (var steeringEntity in batEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
             }
         }
 
