@@ -516,7 +516,7 @@ PrefabInstance:
     - target: {fileID: -256346795203153340, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
       propertyPath: pathParent
       value: 
-      objectReference: {fileID: 1064519413}
+      objectReference: {fileID: 424572893}
     - target: {fileID: -256346795203153340, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
       propertyPath: entitySpeed
       value: 4
@@ -571,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3781674455647895636, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.000547
+      value: -10.1
       objectReference: {fileID: 0}
     - target: {fileID: 3781674455647895636, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -651,6 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 587351421, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
+    - {fileID: -256346795203153340, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
 --- !u!1 &361602905
 GameObject:
@@ -723,7 +724,7 @@ GameObject:
   - component: {fileID: 424572893}
   - component: {fileID: 424572894}
   m_Layer: 0
-  m_Name: WaypointGraph
+  m_Name: PathManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,6 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellularAutomata: {fileID: 540091405}
   resolution: 1
+  resolution: 0.5
 --- !u!1 &532891197
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +862,7 @@ MonoBehaviour:
   cellBehaviorPrefab: {fileID: 5916206661351232991, guid: 06aef9a0e3abe11448056cb915676293, type: 3}
   _wallPrefab: {fileID: 4941020026140912325, guid: 75d1d479e1aa39c4f96609432c40aaf5, type: 3}
   _playerPrefab: {fileID: 4833637759345042316, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
+  _endgamePrefab: {fileID: 4685768560505084144, guid: e0268f22bd179c54ab941f00d59be842, type: 3}
   width: 80
   height: 70
   aliveToDeathConversion: 4
@@ -893,6 +896,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3781674455647895636, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
   m_PrefabInstance: {fileID: 353241784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &633768645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633768638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000db52e79d2d4a4d9df9cabb02e5909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathParent: {fileID: 424572893}
+  entitySpeed: 8
+  pointThreshold: 0.5
+  maxSteeringForce: 10
+  maxAvoidanceDistance: 5
 --- !u!1 &654463905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9206498517186548784, guid: 8e10da74d49eb814888f1698a82896c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9206498517186548784, guid: 8e10da74d49eb814888f1698a82896c3, type: 3}
       propertyPath: m_LocalRotation.w
