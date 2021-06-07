@@ -15,6 +15,7 @@ public class CellularAutomata : MonoBehaviour
     [SerializeField] private CellBehavior cellBehaviorPrefab;
     [SerializeField] private GameObject _wallPrefab;
     [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private GameObject _endgamePrefab;
 
     protected CellBehavior[,] cellViews;
     protected Cell[,] cells;
@@ -501,9 +502,13 @@ public class CellularAutomata : MonoBehaviour
     void StartRoom()
     {
         var startregion = regions_[Random.Range( 0, Regions.Count)];
+        var endregion = regions_[Random.Range( 0, Regions.Count)];
         var startingtile = startregion.Tiles[Random.Range(0, startregion.Count)];
+        var endtile = endregion.Tiles[Random.Range(0, endregion.Count)];
         Vector3 position = new Vector3((startingtile.x - width/2)*cellSize, (startingtile.y-height/2)*cellSize, 0.0f);
+        Vector3 position2 = new Vector3((endtile.x - width/2)*cellSize, (endtile.y-height/2)*cellSize, 0.0f);
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
+        var endGame = Instantiate(_endgamePrefab, position2, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
         var steeringEntities = FindObjectsOfType<SteeringEntity>();
         foreach (var steeringEntity in steeringEntities)
