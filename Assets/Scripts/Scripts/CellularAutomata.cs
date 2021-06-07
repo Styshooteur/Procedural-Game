@@ -217,7 +217,8 @@ public class CellularAutomata : MonoBehaviour
                     //cellViews[x, y].gameObject.AddComponent<BoxCollider2D>();
                     
                     Vector3 position = new Vector3((x - width/2)*cellSize, (y-height/2)*cellSize, 0.0f);
-                    Instantiate(_wallPrefab, position, Quaternion.identity, transform);
+                   var wall = Instantiate(_wallPrefab, position, Quaternion.identity, transform);
+                   wall.layer = LayerMask.NameToLayer("Wall");
                 }
             }
         }
@@ -505,11 +506,17 @@ public class CellularAutomata : MonoBehaviour
         Vector3 position = new Vector3((startingtile.x - width/2)*cellSize, (startingtile.y-height/2)*cellSize, 0.0f);
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
-        var steeringEntities = FindObjectsOfType<BatBehaviour>();
-        foreach (var steeringEntity in steeringEntities)
+        var batEntities = FindObjectsOfType<BatBehaviour>();
+        foreach (var steeringEntity in batEntities)
         {
             steeringEntity.Player = player.transform;
         }
-        
+
+        var owlEntities = FindObjectsOfType<OwlBehaviour>();
+        foreach (var steeringEntity in owlEntities)
+        {
+            steeringEntity.Player = player.transform;
+        }
+
     }
 }

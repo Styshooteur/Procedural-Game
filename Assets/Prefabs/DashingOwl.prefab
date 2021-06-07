@@ -166,9 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0752a710129764ba3454ae0a540a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   dashSpeed: 50
-  startDashTime: 0.1
-  player: {fileID: 4833637759345042305, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
+  sprite: {fileID: 7753056356558882665}
+  speed: 10
+  startDashTime: 0.5
 --- !u!114 &6050318139943495304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,4 +207,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3
