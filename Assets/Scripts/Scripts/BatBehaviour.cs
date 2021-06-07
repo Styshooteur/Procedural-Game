@@ -73,6 +73,7 @@ public class BatBehaviour : MonoBehaviour
         var entityPosition = entityTransform.position;
         var targetPosition = path[targetIndex];
         var deltaPos = targetPosition - entityPosition;
+        
         if (deltaPos.magnitude < pointThreshold)
         {
             targetIndex++;

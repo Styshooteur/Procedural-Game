@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4833637759345042316, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4833637759345042318, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
       propertyPath: m_Sprite

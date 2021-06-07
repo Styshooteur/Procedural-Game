@@ -16,6 +16,8 @@ public class CellularAutomata : MonoBehaviour
     [SerializeField] private GameObject _wallPrefab;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private GameObject _endgamePrefab;
+    [SerializeField] private GameObject _batPrefab;
+    [SerializeField] private GameObject _owlPrefab;
 
     protected CellBehavior[,] cellViews;
     protected Cell[,] cells;
@@ -511,16 +513,46 @@ public class CellularAutomata : MonoBehaviour
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
         var endGame = Instantiate(_endgamePrefab, position2, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
-        var batEntities = FindObjectsOfType<BatBehaviour>();
-        foreach (var steeringEntity in batEntities)
+        
+        for (var i = 0; i <= 2; i++)
         {
-            steeringEntity.Player = player.transform;
-        }
+            foreach (var randomRegion in Regions)
+            {
+               
+                var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
 
-        var owlEntities = FindObjectsOfType<OwlBehaviour>();
-        foreach (var steeringEntity in owlEntities)
+
+                Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
+                    (randomTile.y - height / 2) * cellSize, 0.0f);
+
+                Instantiate(_owlPrefab, randomPosition, Quaternion.identity);
+                var owlEntities = FindObjectsOfType<OwlBehaviour>();
+                foreach (var steeringEntity in owlEntities)
+                {
+                    steeringEntity.Player = player.transform;
+                }
+
+            }
+        }
+        for (var i = 0; i <= 2; i++)
         {
-            steeringEntity.Player = player.transform;
+            foreach (var randomRegion in Regions)
+            {
+                
+                var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
+
+
+                Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
+                    (randomTile.y - height / 2) * cellSize, 0.0f);
+
+                Instantiate(_batPrefab, randomPosition, Quaternion.identity);
+                var batEntities = FindObjectsOfType<BatBehaviour>();
+                foreach (var steeringEntity in batEntities)
+                {
+                    steeringEntity.Player = player.transform;
+                }
+
+            }
         }
 
     }
