@@ -20,17 +20,17 @@ public class PathManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                var worldPos = new Vector2(x, y) * resolution - worldRect.size / 2.0f;
-                var raycast = Physics2D.Raycast(worldPos, Vector2.up, resolution / 2.0f);
+                var worldPos = (new Vector2(x, y) - worldRect.size / 2.0f) * resolution;
+                var raycast = Physics2D.Raycast(worldPos, Vector2.up, resolution / 2.0f, LayerMask.NameToLayer("Wall"));
                 if(raycast.collider != null)
                     continue;
-                raycast = Physics2D.Raycast(worldPos, Vector2.down, resolution / 2.0f);
+                raycast = Physics2D.Raycast(worldPos, Vector2.down, resolution / 2.0f, LayerMask.NameToLayer("Wall"));
                 if(raycast.collider != null)
                     continue;
-                raycast = Physics2D.Raycast(worldPos, Vector2.left, resolution / 2.0f);
+                raycast = Physics2D.Raycast(worldPos, Vector2.left, resolution / 2.0f, LayerMask.NameToLayer("Wall"));
                 if(raycast.collider != null)
                     continue;
-                raycast = Physics2D.Raycast(worldPos, Vector2.right, resolution / 2.0f);
+                raycast = Physics2D.Raycast(worldPos, Vector2.right, resolution / 2.0f, LayerMask.NameToLayer("Wall"));
                 if(raycast.collider != null)
                     continue;
                 var cellView = cellularAutomata.GetClosestCell(worldPos);
@@ -75,4 +75,11 @@ public class PathManager : MonoBehaviour
         }
         
     }
+
+    /*public List<Vector3> CalculatePath(Vector3 startPos, Vector3 endPos)
+    {
+       //get closest start node index and end node index
+       //calculer la distance entre chaque noeud et startPos et endPos
+       //regarder si la distance par rapport a ce noeud est plus petite (point le plus proche d'une position donnée)
+    }*/
 }
