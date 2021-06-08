@@ -519,39 +519,50 @@ public class CellularAutomata : MonoBehaviour
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
         
         
-        for (var i = 0; i <= 1; i++)
-        {
-            foreach (var randomRegion in Regions)
+        foreach (var randomRegion in Regions)
             {
                 var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
+                
                 Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
                     (randomTile.y - height / 2) * cellSize, 0.0f);
 
-                Instantiate(_owlPrefab, randomPosition, Quaternion.identity);
-                var owlEntities = FindObjectsOfType<OwlBehaviour>();
-                    foreach (var steeringEntity in owlEntities)
-                    {
-                    steeringEntity.Player = player.transform;
-                    }
-                
-            }    
-        }
-        for (var i = 0; i <= 1; i++)
-        {
-            foreach (var randomRegion in Regions)
-            {
-                    var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
-                    Vector3 randomPosition = new Vector3((randomTile.x - width / 2) * cellSize,
-                        (randomTile.y - height / 2) * cellSize, 0.0f);
-
+                if (randomRegion.Tiles.Count >= 15 && randomRegion.Tiles.Count < 60)
+                {
                     Instantiate(_batPrefab, randomPosition, Quaternion.identity);
                     var batEntities = FindObjectsOfType<BatBehaviour>();
                     foreach (var steeringEntity in batEntities)
                     {
                         steeringEntity.Player = player.transform;
                     }
+                }
+
+                if (randomRegion.Tiles.Count >= 60 && randomRegion.Tiles.Count < 100)
+                {
+                        Instantiate(_owlPrefab, randomPosition, Quaternion.identity);
+                        var owlEntities = FindObjectsOfType<OwlBehaviour>();
+                        foreach (var steeringEntity in owlEntities)
+                        {
+                            steeringEntity.Player = player.transform;
+                        }
+                }
+
+                if (randomRegion.Tiles.Count >= 100)
+                {
+                    Instantiate(_batPrefab, randomPosition, Quaternion.identity);
+                    var batEntities = FindObjectsOfType<BatBehaviour>();
+                    foreach (var steeringEntity in batEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
+                    
+                    Instantiate(_owlPrefab, randomPosition, Quaternion.identity);
+                    var owlEntities = FindObjectsOfType<OwlBehaviour>();
+                    foreach (var steeringEntity in owlEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
+                }
             }
-        }
 
     }
 }

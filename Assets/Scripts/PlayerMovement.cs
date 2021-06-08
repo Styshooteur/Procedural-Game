@@ -36,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    private void FixedUpdate()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+    
     private void Move() //Moves the player
     {
         transform.Translate(_direction * (speed * Time.deltaTime));

@@ -9,7 +9,7 @@
 [LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000025836987D08 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000025836988998 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -23,14 +23,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 2401568
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 7680
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000BC9F36F2C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000BC9F76F038
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE67C01730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE67C01700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE67C01800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE67C018C0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000025836532C48
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000258365319B8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='DASH2', format=5, channels=1, frequency=48000, lengthbytes=2272, lengthpcm=12535, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.057617.
@@ -39,47 +39,45 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 2401568
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 7680
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000BC9F36F2C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000BC9F76F038
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE67C01730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE67C01700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE67C01800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE67C018C0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000258365300F8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000258365319B8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EnemyHurt', format=5, channels=1, frequency=48000, lengthbytes=1312, lengthpcm=5520, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.185822.
-[LOG] SystemI::createSound                     : filename = ../FMOD Studio/MIMI/Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002588B2CC258 : node = 0000025892654260
-[LOG] SystemI::createSound                     : add node to async list : head = 0000025880E275A8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002588B2CC258
-[LOG] SystemI::createSoundInternal             :     Create name='../FMOD Studio/MIMI/Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2401568
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 7680
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000025892654370
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='GhostWalk', format=5, channels=2, frequency=48000, lengthbytes=890848, lengthpcm=3591105, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.707703.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002588B2CC258
-[LOG] SoundI::release                          : GhostWalk (00000258A822DC18)
-[LOG] SoundI::release                          :     GhostWalk (000002589F1E8A58)
-[LOG] SoundI::release                          :     GhostWalk (0000025880EA6748)
-[LOG] SoundI::release                          : caveAmbience (00000258A822DA68)
-[LOG] SoundI::release                          :     caveAmbience (000002589F1E9DD8)
-[LOG] SoundI::release                          :     caveAmbience (0000025880EA63E8)
-[LOG] SoundI::release                          : GhostWalk (000002588B2CC258)
-[LOG] SoundI::release                          :     GhostWalk (0000025835E04F98)
-[LOG] SoundI::release                          :     GhostWalk (0000025885E1BA88)
-[LOG] SoundI::release                          :  (000002583983C7F8)
-[LOG] SoundI::release                          :     EnemyHurt (000002589F1E9C38)
-[LOG] SoundI::release                          :  (000002583983AB38)
-[LOG] SoundI::release                          :     DASH2 (000002589F1E90D8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 2401568
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 7680
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000BC9F76F038
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE67C01730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE67C01700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE67C01800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE67C018C0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000025885E6F948
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='PlayerHurt', format=5, channels=1, frequency=48000, lengthbytes=1088, lengthpcm=5520, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.145020.
+[LOG] SoundI::release                          : caveAmbience (0000025889F10248)
+[LOG] SoundI::release                          :     caveAmbience (0000025835E04DF8)
+[LOG] SoundI::release                          :     caveAmbience (000002588B750088)
+[LOG] SoundI::release                          : GhostWalk (0000025889F11838)
+[LOG] SoundI::release                          :     GhostWalk (0000025835E052D8)
+[LOG] SoundI::release                          :     GhostWalk (000002588587C268)
+[LOG] SoundI::release                          :  (0000025881189368)
+[LOG] SoundI::release                          :     PlayerHurt (0000025837B32098)
+[LOG] SoundI::release                          :  (0000025835C46518)
+[LOG] SoundI::release                          :     EnemyHurt (000002589F1E88B8)
+[LOG] SoundI::release                          :  (0000025835C477C8)
+[LOG] SoundI::release                          :     DASH2 (000002589F1E9758)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -90,3 +88,7 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 140)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 140)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 140)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 140)
