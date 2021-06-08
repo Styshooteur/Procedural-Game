@@ -6,7 +6,7 @@ using UnityEngine;
 public class BatCombat : MonoBehaviour
 {
     private bool _batCombat = false;
-    [SerializeField] private Transform bat;
+    [SerializeField] private Transform _bat;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private int batAttackDamage = 10;
@@ -15,8 +15,6 @@ public class BatCombat : MonoBehaviour
     [SerializeField] private Projectile web;
     private int _batCurrentHealth;
     
-    // Update is called once per frame
-
     private void Start()
     {
         _batCurrentHealth = batMaxHealth;
@@ -26,7 +24,7 @@ public class BatCombat : MonoBehaviour
     {
         if (_batCombat == true)
         {
-            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(bat.position, attackRange, playerLayer);
+            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(_bat.position, attackRange, playerLayer);
 
             foreach (Collider2D player in hitPlayer)
             {
@@ -47,8 +45,7 @@ public class BatCombat : MonoBehaviour
             Die();
         }
     }
-
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -72,10 +69,10 @@ public class BatCombat : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (bat == null)
+        if (_bat == null)
             return;
         
-        Gizmos.DrawWireSphere(bat.position, attackRange);
+        Gizmos.DrawWireSphere(_bat.position, attackRange);
     }
     
     private IEnumerator FlashRed()

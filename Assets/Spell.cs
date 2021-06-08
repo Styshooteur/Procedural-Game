@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using InControl;
 
 public class Spell : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Spell : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || InputManager.ActiveDevice.Action1.WasPressed)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Vector2 mousePos = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -108,7 +108,7 @@ MonoBehaviour:
   - {fileID: 8702696997280515677}
   StringsBanks:
   - {fileID: 8519182316557201355}
-  stringsBankWriteTime: 637587828203614336
+  stringsBankWriteTime: 637587866568115438
   cacheVersion: 7
 --- !u!114 &1334368779887373457
 MonoBehaviour:
@@ -205,7 +205,7 @@ MonoBehaviour:
   Path: ../FMOD Studio/MIMI/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637587828203614336
+  lastModified: 637587866568115438
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -226,7 +226,7 @@ MonoBehaviour:
   Path: ../FMOD Studio/MIMI/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637587828203594389
+  lastModified: 637587866568095442
   LoadResult: 0
   FileSizes: []
   Exists: 1

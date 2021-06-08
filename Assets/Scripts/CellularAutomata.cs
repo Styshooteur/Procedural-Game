@@ -504,9 +504,11 @@ public class CellularAutomata : MonoBehaviour
 
     void StartRoom()
     {
+        // Creates a starting position for the player
         var startregion = regions_[Random.Range( 0, Regions.Count)];
-        var endregion = regions_[Random.Range( 0, Regions.Count)];
         var startingtile = startregion.Tiles[Random.Range(0, startregion.Count)];
+        //Creats a position for the endGame Portal
+        var endregion = regions_[Random.Range( 0, Regions.Count)];
         var endtile = endregion.Tiles[Random.Range(0, endregion.Count)];
         
         Vector3 position = new Vector3((startingtile.x - width/2)*cellSize,
@@ -514,11 +516,14 @@ public class CellularAutomata : MonoBehaviour
         Vector3 position2 = new Vector3((endtile.x - width/2)*cellSize,
             (endtile.y-height/2)*cellSize, 0.0f);
         
+        // Instantiate the player
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
+        //Instantiate the portal
         var endGame = Instantiate(_endgamePrefab, position2, Quaternion.identity);
         UnityEngine.Camera.main.GetComponent<Camera>().Player = player.transform;
         
         
+        //Makes spawn enemies by regions
         foreach (var randomRegion in Regions)
             {
                 var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
