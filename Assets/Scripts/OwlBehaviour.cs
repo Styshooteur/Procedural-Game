@@ -58,7 +58,7 @@ public class OwlBehaviour : MonoBehaviour
         {
             case State.Wait:
                 Debug.Log("Wait...");
-                if (_playerSpotted == true)
+                if (_playerSpotted)
                 {
                     ChangeState(State.Load);
                 }
@@ -66,7 +66,7 @@ public class OwlBehaviour : MonoBehaviour
             
             case State.Load:
                 Debug.Log("Load...");
-                _dashLoadTime += Time.deltaTime;
+                _dashLoadTime += Time.fixedDeltaTime;
                 if (_dashLoadTime <= _dashLoadPeriod)
                 {
                     sprite.color = Color.blue;
@@ -100,12 +100,12 @@ public class OwlBehaviour : MonoBehaviour
             case State.Regen:
                 Debug.Log("Regen...");
                 _dashCooldownTime += Time.deltaTime;
-                if (_dashCooldownTime > _dashCooldownPeriod && _playerSpotted == true)
+                if (_dashCooldownTime > _dashCooldownPeriod && _playerSpotted)
                 {
                     ChangeState(State.Load);
                 }
 
-                if (_dashCooldownTime > _dashCooldownPeriod && _playerSpotted == false)
+                if (_dashCooldownTime > _dashCooldownPeriod && !_playerSpotted)
                 {
                     ChangeState(State.Reset);
                 }
@@ -141,9 +141,10 @@ public class OwlBehaviour : MonoBehaviour
         }*/
     }
 
-    void ChangeState(State state)
+    void ChangeState(State newState)
     {
-        switch (state)
+        
+        switch (newState)
         {
             case State.Wait:
                 break;
@@ -159,7 +160,7 @@ public class OwlBehaviour : MonoBehaviour
                 break;
         }
 
-        currentState = state;
+        currentState = newState;
     }
     
     private void OnTriggerEnter2D(Collider2D other)

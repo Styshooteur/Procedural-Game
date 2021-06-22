@@ -11,6 +11,7 @@ public class Camera : MonoBehaviour
     }
     [SerializeField] float smoothing;
     [SerializeField] Vector3 offset;
+    
     void Update() // Camera that follows the player
     {
         if (player != null)

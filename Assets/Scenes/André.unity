@@ -443,7 +443,8 @@ MonoBehaviour:
   cellBehaviorPrefab: {fileID: 5916206661351232991, guid: 06aef9a0e3abe11448056cb915676293, type: 3}
   _wallPrefab: {fileID: 4941020026140912325, guid: 75d1d479e1aa39c4f96609432c40aaf5, type: 3}
   _playerPrefab: {fileID: 4833637759345042316, guid: 10e1ba17494addb4b83e9c7f70079772, type: 3}
-  _endgamePrefab: {fileID: 4685768560505084144, guid: e0268f22bd179c54ab941f00d59be842, type: 3}
+  _endgamePrefab: {fileID: 5070782877267251774, guid: fddbaa137564acb4582e19e59e10db95, type: 3}
+  _startgamePrefab: {fileID: 6040500608979210545, guid: 883555524e4e431419273bda3a465d95, type: 3}
   _batPrefab: {fileID: 4677328347303300560, guid: c8841c2f36f00f24392c477f9a7a0c5a, type: 3}
   _owlPrefab: {fileID: 7753056356558882663, guid: cc397406b4392544e97ad41841637251, type: 3}
   width: 80
