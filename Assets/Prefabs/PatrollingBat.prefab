@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6afc5bc3ef7bfc44ad9315886dc4853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bat: {fileID: 3781674455647895636}
+  _bat: {fileID: 3781674455647895636}
   attackRange: 0.5
   playerLayer:
     serializedVersion: 2

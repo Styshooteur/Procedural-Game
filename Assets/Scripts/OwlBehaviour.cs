@@ -30,8 +30,8 @@ public class OwlBehaviour : MonoBehaviour
     private bool _playerSpotted = false;
     private float _dashLoadTime;
     private float _dashLoadPeriod = 2f;
-    private float _dashCooldownTime;
-    private float _dashCooldownPeriod = 1f;
+    private float _regenTime;
+    private float _regenPeriod = 1f;
     private Transform entityTransform;
     private Transform player;
     private Vector3 initialPos;
@@ -91,7 +91,7 @@ public class OwlBehaviour : MonoBehaviour
 
                 if (_dashTime <= 0)
                 {
-                    _dashTime = startDashTime;
+                    
                     _body.velocity = Vector2.zero;
                     _playerSpotted = false;
                     ChangeState(State.Regen);
@@ -99,28 +99,18 @@ public class OwlBehaviour : MonoBehaviour
                 break;
             case State.Regen:
                 Debug.Log("Regen...");
-                _dashCooldownTime += Time.deltaTime;
-                if (_dashCooldownTime > _dashCooldownPeriod && _playerSpotted)
+                _regenTime += Time.deltaTime;
+                if (_regenTime > _regenPeriod && _playerSpotted)
                 {
                     ChangeState(State.Load);
                 }
 
-                if (_dashCooldownTime > _dashCooldownPeriod && !_playerSpotted)
-                {
-                    ChangeState(State.Reset);
-                }
-                break;
-            case State.Reset:
-                Debug.Log("Reset...");
-                var deltaSpawnPos = initialPos - entityTransform.position;
-                _body.velocity = speed * deltaSpawnPos.normalized;
-
-                if (entityTransform.position == initialPos)
+                if (_regenTime > _regenPeriod && !_playerSpotted)
                 {
                     ChangeState(State.Wait);
                 }
                 break;
-            
+
             default:
                 break;
         }
@@ -143,6 +133,9 @@ public class OwlBehaviour : MonoBehaviour
 
     void ChangeState(State newState)
     {
+        _dashTime = startDashTime;
+        _dashLoadTime = 0;
+        _regenTime = 0;
         
         switch (newState)
         {

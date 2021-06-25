@@ -4,6 +4,7 @@ using InControl;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Camera camera;
     [SerializeField] float speed;
     [SerializeField] private SpriteRenderer sprite;
     private Vector2 _direction;
@@ -28,16 +29,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        camera = UnityEngine.Camera.main.GetComponent<Camera>();
         _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        camera.transform.position = transform.position + new Vector3(0, 0, -10);
         TakeInput();
         Move();
         SelfRotation();
     }
-
+    
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

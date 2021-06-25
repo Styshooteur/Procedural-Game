@@ -42,15 +42,53 @@ public class CellularAutomata : MonoBehaviour
     private Vector2Int endPoint;
     private List<Vector2Int> path;
     private int[,] distanceFromPath;
+    
+    
     //[SerializeField] private int hotPathThreshold = 10;
 
      void GeneratePath()
         {
             Vector3 startPosition = new Vector3((startingPoint.x-width/2)*cellSize,(startingPoint.y-height/2)*cellSize, 0.0f);
             Instantiate(_startgamePrefab, startPosition, Quaternion.identity, transform);
-            UnityEngine.Camera.main.GetComponent<Camera>().Player = _playerPrefab.transform;
+            //Instantiate(_playerPrefab, startPosition, Quaternion.identity, transform);
+            //UnityEngine.Camera.main.GetComponent<Camera>().Player = _playerPrefab.transform;
             Vector3 endPosition = new Vector3((endPoint.x-width/2)*cellSize,(endPoint.y-height/2)*cellSize, 0.0f);
             Instantiate(_endgamePrefab, endPosition, Quaternion.identity, transform);
+            var player = Instantiate(_playerPrefab, startPosition + new Vector3(-5, 0, 0), Quaternion.identity, transform); 
+            for (int x = 15; x < width; x += 20)
+            {
+                for (int y = 0; y < height; y += 20)
+                {
+                    if (cells[x, y].isAlive)
+                    {
+                    Vector3 position = new Vector3((x - width / 2) * cellSize, (y - height / 2) * cellSize, 0.0f);
+                    Instantiate(_owlPrefab, position, Quaternion.identity, transform);
+                    var owlEntities = FindObjectsOfType<OwlBehaviour>();
+                    foreach (var steeringEntity in owlEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
+                    
+                    }
+                }
+            }
+            for (int x = 10; x < width; x += 12)
+            {
+                for (int y = 0; y < height; y += 12)
+                {
+                    if (cells[x, y].isAlive)
+                    {
+                    Vector3 position = new Vector3((x - width / 2) * cellSize, (y - height / 2) * cellSize, 0.0f);
+                    Instantiate(_batPrefab, position, Quaternion.identity, transform);
+                    var batEntities = FindObjectsOfType<BatBehaviour>();
+                    foreach (var steeringEntity in batEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
+                    }
+                }
+            }
+            
             path = new List<Vector2Int>();
             Queue<Vector2Int> nextPosition = new Queue<Vector2Int>();
             Dictionary<Vector2Int, Vector2Int> comeFrom = new Dictionary<Vector2Int, Vector2Int>();
@@ -386,7 +424,8 @@ public class CellularAutomata : MonoBehaviour
         
         //Add enemy
         
-        for (int x = 10; x < width; x += 15)
+        
+        /*for (int x = 10; x < width; x += 15)
         {
             for (int y = 0; y < height; y += 15)
             {
@@ -394,6 +433,12 @@ public class CellularAutomata : MonoBehaviour
                 {
                     Vector3 position = new Vector3((x - width / 2) * cellSize, (y - height / 2) * cellSize, 0.0f);
                     Instantiate(_owlPrefab, position, Quaternion.identity, transform);
+                    var owlEntities = FindObjectsOfType<OwlBehaviour>();
+                    foreach (var steeringEntity in owlEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
+                    
                 }
             }
         }
@@ -405,9 +450,14 @@ public class CellularAutomata : MonoBehaviour
                 {
                     Vector3 position = new Vector3((x - width / 2) * cellSize, (y - height / 2) * cellSize, 0.0f);
                     Instantiate(_batPrefab, position, Quaternion.identity, transform);
+                    var batEntities = FindObjectsOfType<BatBehaviour>();
+                    foreach (var steeringEntity in batEntities)
+                    {
+                        steeringEntity.Player = player.transform;
+                    }
                 }
             }
-        }
+        }*/
         /*
         
         }*/
@@ -709,10 +759,9 @@ public class CellularAutomata : MonoBehaviour
         var player = Instantiate(_playerPrefab, position, Quaternion.identity);
         //Instantiate the portal
         var endGame = Instantiate(_endgamePrefab, position2, Quaternion.identity);*/
-        UnityEngine.Camera.main.GetComponent<Camera>().Player = _playerPrefab.transform;
+        /*UnityEngine.Camera.main.GetComponent<Camera>().Player = _playerPrefab.transform;
         
         
-        /*Makes spawn enemies by regions
         foreach (var randomRegion in Regions)
             {
                 var randomTile = randomRegion.Tiles[Random.Range(0, randomRegion.Count)];
